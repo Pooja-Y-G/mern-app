@@ -1,0 +1,51 @@
+name: MERN CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # SERVER
+      - name: Install server deps
+        run: |
+          cd server
+          npm install
+
+      - name: Test server
+        run: |
+          cd server
+          npm test
+
+      - name: Build server
+        run: |
+          cd server
+          npm run build
+
+      # CLIENT
+      - name: Install client deps
+        run: |
+          cd client
+          npm install
+
+      - name: Test client
+        run: |
+          cd client
+          npm test
+
+      - name: Build client
+        run: |
+          cd client
+          npm run build

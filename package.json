@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "@types/cors": "^2.8.19"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.11.2",
+    "axios": "^1.13.5",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.13.0"
+  }
+}
